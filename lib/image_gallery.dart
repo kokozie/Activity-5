@@ -13,7 +13,6 @@ class ImageGalleryState extends State<ImageGallery> {
 
   File? image;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +28,7 @@ class ImageGalleryState extends State<ImageGallery> {
               width: 350,
               height: 350,
               child: image != null ? Image.file(image!) :
-              const Text('No image selected.',
+              const Text('      No image selected.',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30)),
@@ -39,12 +38,12 @@ class ImageGalleryState extends State<ImageGallery> {
       ),
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
-          onPressed: () async {\
+          onPressed: () async {
             var selectedImage = await chooser();
             setState(() {
               image = selectedImage;
             });
-        }
+          }
           ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
